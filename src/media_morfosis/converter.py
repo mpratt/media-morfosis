@@ -30,6 +30,9 @@ class Converter:
     def mpeg_to_mp3(self):
         return self.run('.mp3', acodec='mp3', y=None, vn=None, ar='44100', ac=2, id3v2_version=3, map_metadata=0, **{ 'b:a': '320k'})
 
+    def mpeg_to_avi(self):
+        return self.run('.avi', vcodec='mpeg4', vtag='XVID', acodec='mp3', y=None, ar='44100', ac=2, **{ 'b:a': '128k', 'b:v': '4000k' })
+
     def m4a_to_mp3(self):
         return self.run('.mp3', acodec='mp3', y=None, vn=None, ar='44100', ac=2, id3v2_version=3, map_metadata=0, **{ 'b:a': '320k'})
 
@@ -50,3 +53,4 @@ class Converter:
 
     def flv_to_mp4(self):
         return self.run('.mp4', vcodec='libx264', crf=19, strict='experimental', y=None)
+
